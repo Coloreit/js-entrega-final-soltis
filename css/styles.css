@@ -1,0 +1,184 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Josefin Sans', sans-serif;
+  background-color: #ffffff;
+  text-align: center;
+  color: #1a1a92;
+  font-size: 20px;
+}
+
+/*Header*/
+.logo-principal {
+  display: none;
+  visibility: hidden;
+}
+
+.logo-principal img {
+  display: none;
+  visibility: hidden;
+}
+
+.logo-principal h1 {
+  display: none;
+  visibility: hidden;
+}
+
+.logo-principal p {
+  display: none;
+  visibility: hidden;
+}
+
+/*Galería*/
+.galeria {
+  width: 90%;
+  transform: translateX(5%);
+  margin-top: 10px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 300px;
+  gap: 15px;
+}
+
+.galeria div img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  box-shadow: 7px 7px 19px -4px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 7px 7px 19px -4px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 7px 7px 19px -4px rgba(0, 0, 0, 0.75);
+  border-radius: 10px;
+}
+
+.categoria {
+  position: relative;
+}
+
+.categoria h3 {
+  position: absolute;
+  bottom: 0;
+  transform: translateY(20%);
+  background-color: #34c4cc;
+  border-radius: 0 0 10px 10px;
+  width: 100%;
+  padding: 5px;
+  color: white;
+}
+
+/*Footer - Todos los HTML*/
+footer {
+  background-color: #34c4cc;
+  width: 98%;
+  height: 60px;
+  color: #000000;
+  margin-top: 50px;
+  transform: translateX(0.5%);
+}
+
+footer div {
+  display: flex;
+  width: 98%;
+  height: 100%;
+  align-items: center;
+  justify-content: space-around;
+}
+
+footer div p {
+  justify-content: center;
+}
+
+@media screen and (max-width: 1100px) {
+  .galeria {
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: 250px;
+    margin-top: 5px;
+  }
+
+  .indu {
+    grid-row-start: span 2;
+  }
+
+  .foto-4 {
+    grid-column-start: span 3;
+  }
+
+  @media screen and (max-width: 970px) {
+    footer {
+      margin: 5px;
+      padding: 5px;
+      height: 100%;
+    }
+  }
+
+  @media screen and (max-width: 740px) {
+    .galeria {
+      grid-template-columns: repeat(2, 1fr);
+      grid-auto-rows: 250px;
+      margin-top: 2px;
+    }
+
+    .indu {
+      grid-row-start: span 1;
+    }
+
+    .foto-4 {
+      grid-column-start: span 1;
+    }
+  }
+
+  @media screen and (max-width: 560px) {
+    .logo-principal img {
+      display: none;
+    }
+
+    .galeria {
+      grid-auto-rows: 200px;
+    }
+
+    nav {
+      height: auto;
+      flex-direction: column;
+    }
+  
+    nav ul {
+      width: 100%;
+      height: 150px;
+      display: flex;
+      background-color: rgb(52, 196, 204);
+      flex-direction: column;
+      align-items: flex-end;
+    }
+  
+    nav li a {
+      font-size: 1.3em;
+      padding: 0px;
+    }
+
+    footer {
+      height: auto;
+      margin-top: 50px;
+      padding: 5px;
+    }
+
+    footer div {
+      display: flex;
+      flex-direction: column-reverse;
+    }
+  }
+
+  @media screen and (max-width: 320px) {
+    .galeria {
+      grid-template-columns: repeat(1, 1fr);
+      grid-auto-rows: 200px;
+      margin-top: 1px;
+    }
+  }
+}

@@ -1,0 +1,75 @@
+[
+    {
+        "id": 1,
+        "nombre": "BODY",
+        "genero": "varón",
+        "edad": "0 a 3 meses",
+        "categoria": "INDUMENTARIA",
+        "precio": 1200,
+        "imagen": "./images/indumentaria/Body.jpg"
+    }, {
+        "id": 2,
+        "nombre": "PANTALON",
+        "genero": "varón",
+        "edad": "3 a 6 meses",
+        "categoria": "INDUMENTARIA",
+        "precio": 800,
+        "imagen": "./images/indumentaria/Ranita.jpg"
+    }, {
+        "id": 3,
+        "nombre": "BATITA",
+        "genero": "nena",
+        "edad": "3 a 6 meses",
+        "categoria": "INDUMENTARIA",
+        "precio": 400,
+        "imagen": "./images/indumentaria/Batita.jpg"
+    }, {
+        "id": 4,
+        "nombre": "REMERA",
+        "genero": "nena",
+        "edad": "4 años",
+        "categoria": "INDUMENTARIA",
+        "precio": 700,
+        "imagen": "./images/indumentaria/Remera.jpg"
+    },{
+        "id": 5,
+        "nombre": "MAMADERA",
+        "genero": "Indistinto",
+        "edad": "0 a 12 meses",
+        "categoria": "ACCESORIOS",
+        "precio": 1200,
+        "imagen": "./images/indumentaria/a-mamadera.png"
+    },{
+        "id": 6,
+        "nombre": "CHUPETE",
+        "genero": "Indistinto",
+        "edad": "0 a 6 meses",
+        "categoria": "ACCESORIOS",
+        "precio": 800,
+        "imagen": "./images/indumentaria/a-chupete.png"
+    },{
+        "id": 7,
+        "nombre": "ENCASTRE",
+        "genero": "Indistinto",
+        "edad": "0 a 12 meses",
+        "categoria": "JUGUETES",
+        "precio": 3200,
+        "imagen": "./images/indumentaria/j-0-1.jpg"
+    },{
+        "id": 8,
+        "nombre": "SHAMPOO",
+        "genero": "Indistinto",
+        "edad": "0 a 12 meses",
+        "categoria": "PERFUMERIA",
+        "precio": 450,
+        "imagen": "./images/indumentaria/p-shampoo.png"
+    },{
+        "id": 9,
+        "nombre": "JABON",
+        "genero": "Indistinto",
+        "edad": "0 a 12 meses",
+        "categoria": "PERFUMERIA",
+        "precio": 350,
+        "imagen": "./images/indumentaria/p-jabon.png"
+    }
+]
