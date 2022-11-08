@@ -44,7 +44,10 @@ const mailLogin = document.getElementById("emailLogin"),
     modalEl = document.getElementById("modalLogin"),
     modal = new bootstrap.Modal(modalEl),
     toggles = document.querySelectorAll(".toggles"),
-    contenedorTarjetas = document.querySelector(".contenedorTarjetas");
+    contenedorTarjetas = document.querySelector(".contenedorTarjetas"),
+    cardsOffcanvas = document.querySelector(".cards-offcanvas"),
+    finalizarCompra = document.querySelector(".finalizar-compra"),
+    btnAgregar = document.querySelector(".btnAgregar");
 
 function validarUsuario(usersBD, user, pass) {
     let encontrado = usersBD.find((userBD) => userBD.mail == user);
@@ -93,8 +96,6 @@ function presentarInfo(array, clase) {
     });
 }
 
-let Carrito = []
-
 //Crear las tarjetas
 function crearTarjetas (array, contenedor){
     contenedor.innerHTML="";
@@ -104,16 +105,54 @@ function crearTarjetas (array, contenedor){
         tarjeta.id = `${item.id}`;
         tarjeta.innerHTML = `
         <h4 class="card-header">${item.nombre}</h4>
-        <img src="${item.imagen}" class="card-img-top imagenProducto" alt="${item.categoria}">
+        <img src="${item.imagen}" class="card-img-top imagenProducto" alt="${item.nombre}">
         <div class="card-body">
             <p class="card-text">Edad: ${item.edad}</p>
             <p class="card-text">Categoría: ${item.categoria}</p>
             <span id="precio">$ ${item.precio}</span>
         </div>
-        <div class="card-footer"><a href="#" id= "agregar${item.id}" class="btn btn-primary boton-agregar">Agregar al carrito</a></div>`;
+        <div class="card-footer"><a href="#" id= "agregar${item.id}" class="btn btn-primary btnAgregar">Agregar al carrito</a></div>`;
         contenedor.append(tarjeta)
     }
 }
+
+//NECESITO QUE ME CREE ESTAS TARJETAS EN EL OFFCANVAS CUANDO PONGO COMPRAR!!
+//CUANDO DECOMENTO ESTO NO SE LOGEA!!
+/*
+function crearTarjetasOfCanvas (arr, cont){
+    cont.innerHTML="";
+    for (const item of array) {
+        let tarjeta = document.createElement('div');
+        tarjeta.className = 'card mb-3 card-offcanvas';
+        tarjeta.id = `${item.id}`;
+        tarjeta.innerHTML = `
+        <div class="col-md-4">
+            <img src="${item.imagen}" class="img-fluid rounded-start" alt="${item.nombre}">
+                </div>
+                    <div class="col-md-8">
+                <div class="card-body">
+                    <h2 class="card-title">${item.nombre}</h2>
+                    <p class="card-text">Categoría: ${item.categoria}</p>
+                    <p class="card-text">Precio: $ ${item.precio}</p>
+                </div>
+            </div>`;
+        cont.append(tarjeta)
+    }
+}
+
+btnAgregar.addEventListener("click", () => {
+    crearTarjetasOfCanvas(productos, cardsOffcanvas);
+});
+*/
+
+finalizarCompra.addEventListener("click", () => {
+    //ALGUNA FORMA DE BORRAR TODO
+    Swal.fire({
+        icon: 'success',
+        text: 'Compra finalizada',
+    });
+});
+
 
 function buscar(array, criterio, input){
     return array.filter(item=>item[criterio].includes(input))
