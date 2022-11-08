@@ -37,6 +37,8 @@ class Producto {
 
 let productos;
 
+let carritoVacio = true;
+
 const mailLogin = document.getElementById("emailLogin"),
     passLogin = document.getElementById("passwordLogin"),
     recordar = document.getElementById("recordarme"),
@@ -45,9 +47,9 @@ const mailLogin = document.getElementById("emailLogin"),
     modal = new bootstrap.Modal(modalEl),
     toggles = document.querySelectorAll(".toggles"),
     contenedorTarjetas = document.querySelector(".contenedorTarjetas"),
-    cardsOffcanvas = document.querySelector(".cards-offcanvas"),
-    finalizarCompra = document.querySelector(".finalizar-compra"),
-    btnAgregar = document.querySelector(".btnAgregar");
+    btnFinalizarCompra = document.getElementById("btnFinalizarCompra"),
+    togglesCarrito = document.querySelectorAll(".toggle-carrito"),
+    divCarrito = document.getElementById("div-carrito");
 
 function validarUsuario(usersBD, user, pass) {
     let encontrado = usersBD.find((userBD) => userBD.mail == user);
@@ -111,46 +113,73 @@ function crearTarjetas (array, contenedor){
             <p class="card-text">Categoría: ${item.categoria}</p>
             <span id="precio">$ ${item.precio}</span>
         </div>
-        <div class="card-footer"><a href="#" id= "agregar${item.id}" class="btn btn-primary btnAgregar">Agregar al carrito</a></div>`;
-        contenedor.append(tarjeta)
+        <div class="card-footer"><a href="#" id= "${item.id}" class="btn btn-primary btnAgregar">Agregar al carrito</a></div>`;
+        contenedor.append(tarjeta);
     }
+
+    let botones = document.querySelectorAll(".btnAgregar");
+    botones.forEach(boton => {
+        boton.addEventListener("click", (e) => {
+            e.preventDefault();   
+            agregarProductoCarrito(boton.id);
+        })
+    });
 }
 
-//NECESITO QUE ME CREE ESTAS TARJETAS EN EL OFFCANVAS CUANDO PONGO COMPRAR!!
-//CUANDO DECOMENTO ESTO NO SE LOGEA!!
-/*
-function crearTarjetasOfCanvas (arr, cont){
-    cont.innerHTML="";
-    for (const item of array) {
-        let tarjeta = document.createElement('div');
-        tarjeta.className = 'card mb-3 card-offcanvas';
-        tarjeta.id = `${item.id}`;
-        tarjeta.innerHTML = `
+//Tajetas en el carrito
+function agregarProductoCarrito(idProducto){
+    if (carritoVacio){
+        toggleElementosCarrito();
+        carritoVacio = false;
+    }
+
+    /*
+    console.log(productos);
+    let productoAgregado = productos.slice(p => p.id === idProducto);
+    console.log(productoAgregado);
+    */
+
+    let tarjetaCarrito= document.createElement('div');
+    tarjetaCarrito.className = 'card mb-3 tarjeta-carrito';
+    tarjetaCarrito.innerHTML = `
+    <div class="row g-0">
         <div class="col-md-4">
-            <img src="${item.imagen}" class="img-fluid rounded-start" alt="${item.nombre}">
-                </div>
-                    <div class="col-md-8">
-                <div class="card-body">
-                    <h2 class="card-title">${item.nombre}</h2>
-                    <p class="card-text">Categoría: ${item.categoria}</p>
-                    <p class="card-text">Precio: $ ${item.precio}</p>
-                </div>
-            </div>`;
-        cont.append(tarjeta)
-    }
+            <img src="./images/indumentaria/Batita.jpg" class="img-fluid rounded-start" alt="Batita">
+        </div>
+        <div class="col-md-8">
+            <div class="card-body">
+                <h2 class="card-title">Batita</h2>
+                <p class="card-text">Categoría:</p>
+                <p class="card-text">Precio $</p>
+            </div>
+        </div>
+    </div>`;
+    divCarrito.append(tarjetaCarrito);
+
+    avisarProductoAgregado();
 }
 
-btnAgregar.addEventListener("click", () => {
-    crearTarjetasOfCanvas(productos, cardsOffcanvas);
-});
-*/
+function toggleElementosCarrito(){
+    togglesCarrito.forEach(elemento => {
+        elemento.classList.toggle("d-none")
+    });
+}
 
-finalizarCompra.addEventListener("click", () => {
-    //ALGUNA FORMA DE BORRAR TODO
+function avisarProductoAgregado(){
+    Swal.fire({
+        icon: 'success',
+        text: 'Producto agregado al carrito',
+    });
+}
+
+btnFinalizarCompra.addEventListener("click", () => {
     Swal.fire({
         icon: 'success',
         text: 'Compra finalizada',
     });
+    carritoVacio = true;
+    divCarrito.innerHTML = "";
+    toggleElementosCarrito();
 });
 
 

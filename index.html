@@ -49,29 +49,14 @@
 
                     <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
                         <div class="offcanvas-header">
-                        <h5 class="offcanvas-title" id="offcanvasRightLabel">Carrito</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                            <h5 class="offcanvas-title" id="offcanvasRightLabel">Carrito</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                         </div>
-                            <div class="offcanvas-body">
-                            <h3 class="toggle">Su carrito está vacío</h3>
-            
-                            <div class="card mb-3 card-offcanvas" style="max-width: 540px;">
-                                <div class="row g-0">
-                                    <div class="col-md-4">
-                                        <img src="./images/indumentaria/Batita.jpg" class="img-fluid rounded-start" alt="Batita">
-                                    </div>
-                                    <div class="col-md-8">
-                                        <div class="card-body">
-                                            <h2 class="card-title">Batita HARCODE</h2>
-                                            <p class="card-text">Categoría: ${item.categoria}</p>
-                                            <p class="card-text">Precio $ ${item.precio}</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <button class="btn btn-primary me-2 finalizar-compra" type="button">Finalizar compra</button>
+                        <div class="offcanvas-body">
+                            <h3 class="toggle-carrito">Su carrito está vacío</h3>
+                            <div id="div-carrito"></div>
                         </div>
+                        <button class="btn btn-primary me-2 toggle-carrito d-none" id= "btnFinalizarCompra" type="button">Finalizar compra</button>
                     </div>
 
                 <form class="d-flex">

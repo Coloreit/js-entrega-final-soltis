@@ -20,6 +20,10 @@ body {
   color: #ffffff;
 }
 
+.tarjetaCarrito {
+  max-width: 540px;
+}
+
 .busqueda {
   display: flex;
   width: 98%;
