@@ -42,14 +42,26 @@
         <nav id="loginBar" class="navbar navbar-light loginBar bg-info">
             <div class="container-fluid">
                 <a class="navbar-brand" href="#">
-                    <img src="./images/logo.jpg" alt="logo" height="40"></a>
-                <h1>BabyBoom Villa Nueva</h1>
-                <form class="d-flex">
-                    <button id="btnModalLogin" class="btn btn-outline-primary me-2 toggles" type="button" data-bs-toggle="modal"
-                        data-bs-target="#modalLogin">Login</button>
-                    <button id="btnLogout" class="btn btn-outline-secondary d-none toggles" type="button">Logout</button>
-                    <p id="nombreUsuario" class="d-none toggles"></p>
+                    <img src="./images/favicon.png" alt="logo" height="50"></a>
+                <h1 class="baby">BabyBoom || Villa Nueva</h1>
+                
+                <button class="btn btn-primary d-none toggles" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Carrito</button>
 
+                    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+                        <div class="offcanvas-header">
+                        <h5 class="offcanvas-title" id="offcanvasRightLabel">Carrito</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                        </div>
+                        <div class="offcanvas-body">
+                        <h3 class="toggle">Su carrito está vacío</h3>
+                        </div>
+                    </div>
+
+                <form class="d-flex">
+                    <button id="btnModalLogin" class="btn btn-primary me-2 toggles" type="button" data-bs-toggle="modal"
+                        data-bs-target="#modalLogin">Login</button>
+                    <button id="btnLogout" class="btn btn-secondary d-none toggles" type="button">Logout</button>
+                    <p id="nombreUsuario" class="d-none toggles"></p>
                 </form>
             </div>
         </nav>
@@ -137,7 +149,7 @@
             </div>
         </div>
 
-        <div class="contenedorTarjetas cards row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-xl-4 g-4">
+        <div class="contenedorTarjetas cards row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-xl-4 g-4 toggles d-none">
         </div>
     </main>
 

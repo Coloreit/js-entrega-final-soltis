@@ -48,16 +48,12 @@ const mailLogin = document.getElementById("emailLogin"),
 
 function validarUsuario(usersBD, user, pass) {
     let encontrado = usersBD.find((userBD) => userBD.mail == user);
-    
-    if (typeof encontrado === "undefined") {
-        return false;
-    } else {
-        if (encontrado.pass != pass) {
-            return false;
-        } else {
-            return encontrado;
-        }
+    let validado;
+    typeof encontrado === "undefined" || encontrado.pass != pass ? validado = false : validado = true;
+    if(validado) {
+        return encontrado;
     }
+    return false;
 }
 
 function guardarDatos(usuarioBD, storage) {
@@ -97,7 +93,9 @@ function presentarInfo(array, clase) {
     });
 }
 
-//BUSQUEDA
+let Carrito = []
+
+//Crear las tarjetas
 function crearTarjetas (array, contenedor){
     contenedor.innerHTML="";
     for (const item of array) {
@@ -112,7 +110,7 @@ function crearTarjetas (array, contenedor){
             <p class="card-text">Categoría: ${item.categoria}</p>
             <span id="precio">$ ${item.precio}</span>
         </div>
-        <div class="card-footer"><a href="#" class="btn btn-primary">Comprar</a></div>`;
+        <div class="card-footer"><a href="#" id= "agregar${item.id}" class="btn btn-primary boton-agregar">Agregar al carrito</a></div>`;
         contenedor.append(tarjeta)
     }
 }
@@ -125,7 +123,10 @@ btnLogin.addEventListener("click", (e) => {
     e.preventDefault();
 
     if (!mailLogin.value || !passLogin.value) {
-        alert('Todos los campos son requeridos');
+        Swal.fire({
+            icon: 'warning',
+            text: 'Todos los campos son requeridos',
+        });
     } else {
 
         let data = validarUsuario(usuarios, mailLogin.value, passLogin.value);
