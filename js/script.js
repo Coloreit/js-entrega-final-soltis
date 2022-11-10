@@ -133,24 +133,20 @@ function agregarProductoCarrito(idProducto){
         carritoVacio = false;
     }
 
-    /*
-    console.log(productos);
-    let productoAgregado = productos.slice(p => p.id === idProducto);
-    console.log(productoAgregado);
-    */
+    let productoAgregado = productos.find(p => p.id == idProducto);
 
     let tarjetaCarrito= document.createElement('div');
     tarjetaCarrito.className = 'card mb-3 tarjeta-carrito';
     tarjetaCarrito.innerHTML = `
     <div class="row g-0">
         <div class="col-md-4">
-            <img src="./images/indumentaria/Batita.jpg" class="img-fluid rounded-start" alt="Batita">
+            <img src="${productoAgregado.imagen}" class="img-fluid rounded-start" alt="Batita">
         </div>
         <div class="col-md-8">
             <div class="card-body">
-                <h2 class="card-title">Batita</h2>
-                <p class="card-text">Categoría:</p>
-                <p class="card-text">Precio $</p>
+                <h2 class="card-title">${productoAgregado.nombre}</h2>
+                <p class="card-text">Categoría: ${productoAgregado.categoria}</p>
+                <p class="card-text">Precio $${productoAgregado.precio}</p>
             </div>
         </div>
     </div>`;
