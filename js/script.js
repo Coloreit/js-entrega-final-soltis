@@ -1,3 +1,4 @@
+//Array de usuarios
 const usuarios = [{
     nombre: 'Evangelina',
     mail: 'eva@mail.com',
@@ -98,7 +99,7 @@ function presentarInfo(array, clase) {
     });
 }
 
-//Crear las tarjetas
+//Crear las tarjetas logeadas
 function crearTarjetas (array, contenedor){
     contenedor.innerHTML="";
     for (const item of array) {
@@ -223,7 +224,7 @@ btnLogout.addEventListener("click", () => {
 });
 
 function cargarJsonTarjetas() {
-    fetch('./js/productos.json') //un json dentro del proyecto con la info en español
+    fetch('./js/productos.json')
         .then((response) => response.json())
         .then((data) => {
             productos = data;
